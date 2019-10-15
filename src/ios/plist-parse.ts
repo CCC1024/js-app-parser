@@ -166,7 +166,7 @@ function toDictionary(plistBytes: Uint8Array, objInfo: number, objectRefSize: nu
 export function parsePlist(plistBytes: Uint8Array): PList {
     const constent = utf8Decoder.decode(plistBytes);
     const info = plist.parse(constent);
-    return new PList(info);
+    return new PList(info as any);
     /*
     let header = utf8Decoder.decode(plistBytes.slice(0, 'bplist'.length));
     if (header !== 'bplist') {
