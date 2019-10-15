@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/mljsgto222/js-app-parser#readme",
   "dependencies": {
+    "@types/plist": "^3.0.2",
     "crc-32": "^1.2.0",
     "jszip": "^3.1.5",
     "pako": "^1.0.6",
-    "text-encoding": "^0.6.4",
-    "plist": "^3.0.1"
+    "plist": "^3.0.1",
+    "text-encoding": "^0.6.4"
   },
   "devDependencies": {
     "@types/es6-promise": "^3.3.0",
