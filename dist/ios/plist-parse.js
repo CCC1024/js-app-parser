@@ -1,5 +1,13 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var plist = __importStar(require("plist"));
 var tools_1 = require("./tools");
 var Encoding = require('text-encoding');
 // EPOCH = new SimpleDateFormat("yyyy MM dd zzz").parse("2001 01 01 GMT").getTime();
@@ -153,24 +161,31 @@ function toDictionary(plistBytes, objInfo, objectRefSize, fullBytes) {
     return dic;
 }
 function parsePlist(plistBytes) {
-    var header = utf8Decoder.decode(plistBytes.slice(0, 'bplist'.length));
+    var constent = utf8Decoder.decode(plistBytes);
+    var info = plist.parse(constent);
+    return new PList(info);
+    /*
+    let header = utf8Decoder.decode(plistBytes.slice(0, 'bplist'.length));
     if (header !== 'bplist') {
         return utf8Decoder.decode(plistBytes);
     }
+
     // Handle trailer, last 32 bytes of the file
-    var trailer = plistBytes.slice(plistBytes.length - 32);
-    var offsetSize = trailer[6];
+    const trailer = plistBytes.slice(plistBytes.length - 32);
+    const offsetSize = trailer[6];
     objectRefSize = trailer[7];
-    var objectCount = parseInt(tools_1.Tools.toHex(trailer.slice(8, 16)), 16);
-    var topObjectIndex = parseInt(tools_1.Tools.toHex(trailer.slice(16, 24)), 16);
-    var offsetTableOffset = parseInt(tools_1.Tools.toHex(trailer.slice(24, 32)), 16);
+    const objectCount = parseInt(Tools.toHex(trailer.slice(8, 16)), 16);
+    const topObjectIndex = parseInt(Tools.toHex(trailer.slice(16, 24)), 16);
+    const offsetTableOffset = parseInt(Tools.toHex(trailer.slice(24, 32)), 16);
+
     offsetTable = [];
-    for (var i = 0; i < objectCount; i++) {
-        var offset = tools_1.Tools.toHex(plistBytes.slice(offsetTableOffset + i * offsetSize, offsetTableOffset + (i + 1) * offsetSize));
+    for (let i = 0; i < objectCount; i++) {
+        const offset = Tools.toHex(plistBytes.slice(offsetTableOffset + i * offsetSize, offsetTableOffset + (i + 1) * offsetSize));
         offsetTable.push(parseInt(offset, 16));
     }
-    var info = parseObject(plistBytes, offsetTable[topObjectIndex]);
-    return new PList(info);
+
+    const info = parseObject(plistBytes, offsetTable[topObjectIndex]);
+    return new PList(info); */
 }
 exports.parsePlist = parsePlist;
 var PList = /** @class */ (function () {
