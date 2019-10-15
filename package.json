@@ -27,7 +27,8 @@
     "crc-32": "^1.2.0",
     "jszip": "^3.1.5",
     "pako": "^1.0.6",
-    "text-encoding": "^0.6.4"
+    "text-encoding": "^0.6.4",
+    "plist": "^3.0.1"
   },
   "devDependencies": {
     "@types/es6-promise": "^3.3.0",
