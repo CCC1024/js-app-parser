@@ -1,3 +1,4 @@
+import * as plist from "plist";
 import { Tools } from "./tools";
 
 const Encoding = require('text-encoding');
@@ -163,6 +164,10 @@ function toDictionary(plistBytes: Uint8Array, objInfo: number, objectRefSize: nu
 }
 
 export function parsePlist(plistBytes: Uint8Array): PList {
+    const constent = utf8Decoder.decode(plistBytes);
+    const info = plist.parse(constent);
+    return new PList(info);
+    /*
     let header = utf8Decoder.decode(plistBytes.slice(0, 'bplist'.length));
     if (header !== 'bplist') {
         return utf8Decoder.decode(plistBytes);
@@ -183,7 +188,7 @@ export function parsePlist(plistBytes: Uint8Array): PList {
     }
 
     const info = parseObject(plistBytes, offsetTable[topObjectIndex]);
-    return new PList(info);
+    return new PList(info); */
 }
 
 export class PList {
