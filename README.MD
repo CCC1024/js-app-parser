@@ -1,4 +1,6 @@
-## js-app-parser
+## web-pkg-parser
+
+* Base on https://github.com/mljsgto222/js-app-parser.git, and modify the plist parser. *
 
 ### Features
 
@@ -12,12 +14,13 @@
 * [pako](http://nodeca.github.io/pako/)
 * [js-crc32](https://github.com/SheetJS/js-crc32)
 * [text-encoding](https://github.com/inexorabletash/text-encoding)
+* [plist](https://github.com/TooTallNate/plist.js)
 
 
 ### Install
 
 ```npm
-npm install --save js-app-parser
+npm install --save web-pkg-parser
 ```
 
 ### Usage
@@ -25,7 +28,7 @@ npm install --save js-app-parser
 #### Node
 
 ```js
-const appParser = require('js-app-parser');
+const appParser = require('web-pkg-parser');
 const fs = require('fs');
 
 const buffer = fs.readFileSync('your apk or ipa file path').buffer;

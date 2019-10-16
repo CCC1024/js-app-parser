@@ -1,7 +1,7 @@
 {
-  "name": "js-app-parser",
-  "version": "1.0.1",
-  "description": "application package parser with javascript, for decoding android apk or ios ipa, getting application meta info.",
+  "name": "web-pkg-parser",
+  "version": "1.0.2",
+  "description": "application package parser with javascript, for decoding android apk or ios ipa, getting application meta info. Base on https://github.com/mljsgto222/js-app-parser.git, and modify the plist parser.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mljsgto222/js-app-parser.git"
+    "url": "git+https://github.com/CCC1024/js-app-parser.git"
   },
   "keywords": [
     "apk",
@@ -20,9 +20,9 @@
   "author": "mljsgto222",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mljsgto222/js-app-parser/issues"
+    "url": "https://github.com/CCC1024/js-app-parser/issues"
   },
-  "homepage": "https://github.com/mljsgto222/js-app-parser#readme",
+  "homepage": "https://github.com/CCC1024/js-app-parser#readme",
   "dependencies": {
     "@types/plist": "^3.0.2",
     "crc-32": "^1.2.0",
